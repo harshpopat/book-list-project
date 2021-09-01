@@ -52,18 +52,25 @@ document.getElementById('book-form').addEventListener('submit', function(e){
 
 
   // instantiate book
-  
   const book = new Book(title, author, isbn);
 
   //instantiate ui
-
   const ui = new UI();
 
-  //add book to list
-  ui.addBookList(book);
+  // Validate
+  if(title === '' || author === '' || isbn === '') {
+    alert('failed');
+  } else {
+    //add book to list
+    ui.addBookList(book);
 
-  //clear fields
-  ui.clearFields();
+    //clear fields
+    ui.clearFields();
+  }
+
+
+
+  
 
   e.preventDefault();
 });
